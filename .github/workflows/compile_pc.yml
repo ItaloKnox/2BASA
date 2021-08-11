@@ -36,12 +36,12 @@ jobs:
     #  env:
     #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
-    - name: Release (PC)
-      run: gh release upload v${{ github.ref }} "HE.KT.Umineko.Tsubasa.PT-BR.(Legacy.Art).7z"
+    - name: Release
+      run: gh release create v${{ github.ref }} "HE.KT.*.7z"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Release (PS3)
-      run: gh release upload v${{ github.RUN_NUMBER }} "HE.KT.Umineko.Tsubasa.PT-BR.(PS3).7z"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Release (PS3)
+    #   run: gh release upload v${{ github.RUN_NUMBER }} "HE.KT.Umineko.Tsubasa.PT-BR.(PS3).7z"
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
