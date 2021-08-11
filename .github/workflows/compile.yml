@@ -22,10 +22,10 @@ jobs:
         python-version: '3.x'
         architecture: 'x64'
 
-    - name: compile patch
+    - name: Compile patch (PC)
       run: python dependencies\compile_pc.py
 
-    - name: compile patch (ps3)
+    - name: Compile patch (PS3)
       run: python dependencies\compile_ps3.py
 
     #- name: Release
@@ -36,11 +36,11 @@ jobs:
     #  env:
     #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Set env
-      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-
     - name: Release
-      run: gh release create ${{ env.RELEASE_VERSION }} "HE.KT.Umineko.Tsubasa.PT-BR.(Legacy.Art).7z" "HE.KT.Umineko.Tsubasa.PT-BR.(PS3).7z"
+      id: vars
+      run: |
+        echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+        gh release create ${{ steps.vars.outputs.tag }} "HE.KT.Umineko.Tsubasa.PT-BR.(Legacy.Art).7z" "HE.KT.Umineko.Tsubasa.PT-BR.(PS3).7z"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
