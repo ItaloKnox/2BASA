@@ -22,7 +22,7 @@ jobs:
         python-version: '3.x'
         architecture: 'x64'
 
-    - name: compile patch
+    - name: compile patch (ps3)
       run: python dependencies\compile_ps3.py
 
     #- name: Release
