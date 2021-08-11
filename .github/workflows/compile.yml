@@ -36,9 +36,13 @@ jobs:
     #  env:
     #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: 'Get Previous tag'
+      id: previoustag
+      uses: "WyriHaximus/github-action-get-previous-tag@v1"
+      
     - name: Release
       id: vars
-      run: gh release create ${{ github.ref:10 }} "HE.KT.Umineko.Tsubasa.PT-BR.(Legacy.Art).7z" "HE.KT.Umineko.Tsubasa.PT-BR.(PS3).7z"
+      run: gh release create ${{ steps.previoustag.outputs.tag }} "HE.KT.Umineko.Tsubasa.PT-BR.(Legacy.Art).7z" "HE.KT.Umineko.Tsubasa.PT-BR.(PS3).7z"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
