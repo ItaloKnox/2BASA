@@ -1,4 +1,4 @@
-name: Compile and release (PC)
+name: Compile and release
 
 # Tradução: quando houver uma atualização (push) ou pedido de atualização (pull request) nos arquivos hane_pc.txt, este script poderá ser rodado, mas APENAS se houver a adição de uma tag
 on:
@@ -37,7 +37,7 @@ jobs:
     #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Release
-      run: gh release create v${{ github.ref }} "HE.KT.Umineko.Tsubasa.PT-BR.(Legacy.Art).7z" "HE.KT.Umineko.Tsubasa.PT-BR.(PS3).7z"
+      run: gh release create v${{ github.ref }} --title v${{ github.ref }} "HE.KT.Umineko.Tsubasa.PT-BR.(Legacy.Art).7z" "HE.KT.Umineko.Tsubasa.PT-BR.(PS3).7z"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
