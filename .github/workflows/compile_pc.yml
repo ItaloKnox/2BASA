@@ -37,7 +37,7 @@ jobs:
     #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Release
-      run: gh release create v${{ github.ref }} "HE.KT.*.7z"
+      run: gh release create v${{ github.ref }} "HE.KT.Umineko.Tsubasa.PT-BR.(Legacy.Art).7z" "HE.KT.Umineko.Tsubasa.PT-BR.(PS3).7z"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
